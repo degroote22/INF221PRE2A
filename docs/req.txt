@@ -1,0 +1,8 @@
+	Requisitos funcionais:
+[ ] Calcular a melhor trilha
+[ ] Mostrar a melhor trilha para o usuario
+[ ] Em caso de empate, mostrar a trilha de menor identificador
+
+
+	Requisitos nao funcionais:
+[ ] Fornecer o resultado em um tempo menor que 1s

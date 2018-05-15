@@ -1,0 +1,6 @@
+Etapas para a solucao
+	[ ] guardar todas as trilhas em memoria
+	[ ] passar por todas nos dois sentidos e defifinir o seu 'custo'
+		[ ] o custo sera a quantidade que o professor sobe neste caso
+	[ ] pega a de menor custo
+	[ ] imprime pro usuario
