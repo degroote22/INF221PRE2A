@@ -1,23 +1,27 @@
-import * as fs from "fs";
+import { processByFilename } from "./lib";
 
-const getTracks = (data: string) => {
-  const lines = data
-    .split(/\r?\n/)
-    .filter(x => typeof x === "string" && x !== "");
+export const getFilenameFromInput = () => {
+  const fileName = process.argv[2];
 
-  const [linesNumber, ...rest] = lines;
-  if (parseInt(linesNumber, 10) !== lines.length - 1) {
-    throw Error("Numero de linhas invalido");
+  if (typeof fileName !== "string") {
+    throw Error(
+      "Argumento para o nome do arquivo inválido"
+    );
   }
-  return rest;
+  return fileName;
 };
 
-fs.readFile("./samples/1.txt", "utf8", (err, data) => {
-  if (!err) {
-    const tracks = getTracks(data);
-    console.log(`tracks`, tracks);
-  
-  } else {
+const main = async () => {
+  try {
+    const smaller = await processByFilename(
+      getFilenameFromInput()
+    );
+    console.log(smaller);
+  } catch (err) {
+    // Se houver algum erro no programa, mostrar no console apenas.
     console.error(err);
   }
-});
+};
+
+// inicializa o programa
+main();
